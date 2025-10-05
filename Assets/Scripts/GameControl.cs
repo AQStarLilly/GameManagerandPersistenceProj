@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameControl : MonoBehaviour
 
     public float health;
     public float experience;
+    public float score;
+    public float level;
+    public float bond;
+    public float currency;
 
     void Awake()
     {
@@ -25,8 +30,15 @@ public class GameControl : MonoBehaviour
 
     void OnGUI()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            return;
+
         GUI.Label(new Rect(10, 10, 100, 30), "Health: " + health);
-        GUI.Label(new Rect(10, 40, 150, 30), "Experience: " + experience);
+        GUI.Label(new Rect(10, 25, 150, 30), "Experience: " + experience);
+        GUI.Label(new Rect(10, 40, 150, 30), "Score: " + score);
+        GUI.Label(new Rect(10, 55, 150, 30), "Level: " + level);
+        GUI.Label(new Rect(10, 70, 150, 30), "Bond: " + bond);
+        GUI.Label(new Rect(10, 85, 150, 30), "Currency: " + currency);
     }
 
     public void Save()
@@ -37,6 +49,10 @@ public class GameControl : MonoBehaviour
         PlayerData data = new PlayerData();
         data.health = health;
         data.experience = experience;
+        data.score = score;
+        data.level = level;
+        data.bond = bond;
+        data.currency = currency;
 
         bf.Serialize(file, data);
         file.Close();
@@ -53,6 +69,10 @@ public class GameControl : MonoBehaviour
 
             health = data.health;
             experience = data.experience;
+            score = data.score;
+            level = data.level;
+            bond = data.bond;
+            currency = data.currency;
         }
     }
 }
@@ -62,4 +82,8 @@ class PlayerData
 {
     public float health;
     public float experience;
+    public float score;
+    public float level;
+    public float bond;
+    public float currency;
 }
