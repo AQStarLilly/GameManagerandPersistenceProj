@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,11 +9,17 @@ public class GameManager : MonoBehaviour
 
     [Header("Testing")]
     [Tooltip("If true, Singleton is disabled and multiple GameManagers can exist.")]
-    public bool disableSingleton = false;
+    [SerializeField] private bool disableSingletonInspector = false;
+    public static bool disableSingleton = false;
 
 
     void Awake()
     {
+        if(instanceCount == 0)
+        {
+            disableSingleton = disableSingletonInspector;
+        }
+
         if (disableSingleton)
         {
             //Test mode

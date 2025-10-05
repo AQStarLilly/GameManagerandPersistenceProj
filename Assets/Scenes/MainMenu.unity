@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5a1e3c0224d1043a9aadd5dfccae0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableSingleton: 0
+  disableSingletonInspector: 0
 --- !u!4 &1870660153
 Transform:
   m_ObjectHideFlags: 0
