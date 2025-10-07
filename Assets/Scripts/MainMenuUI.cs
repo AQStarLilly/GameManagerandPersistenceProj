@@ -4,6 +4,7 @@ public class MainMenuUI : MonoBehaviour
 {
     void OnGUI()
     {
+        //Set variables for "Player"
         if (GUI.Button(new Rect(10, 10, 150, 30), "Start New Game"))
         {
             GameControl.control.health = 100;
@@ -16,6 +17,7 @@ public class MainMenuUI : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
 
+        // Load saved variables for "Player"
         if (GUI.Button(new Rect(10, 50, 150, 30), "Load Saved Game"))
         {
             GameControl.control.Load();

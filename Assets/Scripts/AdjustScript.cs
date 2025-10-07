@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AdjustScript : MonoBehaviour
 {
-    void OnGUI()
+    void OnGUI()  //Buttons that let you adjust all stats/variables
     {
         if (GUI.Button(new Rect(10, 120, 100, 30), "Health up"))
         {

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Testing")]
     [Tooltip("If true, Singleton is disabled and multiple GameManagers can exist.")]
-    [SerializeField] private bool disableSingletonInspector = false;
+    [SerializeField] private bool disableSingletonInspector = false; //For testing
     public static bool disableSingleton = false;
 
 
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4)) SceneManager.LoadScene(3); // Level 3
     }
 
-    void OnGUI()
+    void OnGUI() //Shows some variables on screen
     {
         GUI.Label(new Rect(200, 10, 200, 30), "GameManagers: " + instanceCount);
         GUI.Label(new Rect(200, 25, 200, 30), "Singleton Disabled: " + disableSingleton);

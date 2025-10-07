@@ -28,7 +28,7 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    void OnGUI()
+    void OnGUI() //Print stats to screen
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
             return;
@@ -41,7 +41,7 @@ public class GameControl : MonoBehaviour
         GUI.Label(new Rect(10, 85, 150, 30), "Currency: " + currency);
     }
 
-    public void Save()
+    public void Save() //Method to save "Player" Stats
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
@@ -58,7 +58,7 @@ public class GameControl : MonoBehaviour
         file.Close();
     }
 
-    public void Load()
+    public void Load() //Method to load "Player" Stats
     {
         if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
